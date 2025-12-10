@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+.component-item {
+  transition: all 0.2s ease;
+}
+
+.component-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.canvas-container {
+  min-height: 400px;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.workflow-node {
+  cursor: move;
+}
+
+.workflow-link {
+  fill: none;
+  stroke: #6b7280;
+  stroke-width: 2px;
+}
