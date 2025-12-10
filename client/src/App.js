@@ -9,7 +9,6 @@ import './App.css';
 
 function App() {
   const [components, setComponents] = useState([]);
-  const [selectedProject, setSelectedProject] = useState(null);
   const [showWorkflow, setShowWorkflow] = useState(false);
 
   const addComponent = (component) => {
@@ -40,10 +39,9 @@ function App() {
         
         <Toolbar
           components={components}
-          onSave={setSelectedProject}
+          onSave={() => {}}
           onLoad={(project) => {
             setComponents(project.components || []);
-            setSelectedProject(project);
           }}
           onExport={() => {}}
           onToggleWorkflow={() => setShowWorkflow(!showWorkflow)}
