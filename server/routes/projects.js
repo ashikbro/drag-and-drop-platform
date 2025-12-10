@@ -51,7 +51,6 @@ router.put('/:id', async (req, res) => {
 
     if (req.body.name) project.name = req.body.name;
     if (req.body.components) project.components = req.body.components;
-    project.updatedAt = Date.now();
 
     const updatedProject = await project.save();
     res.json(updatedProject);

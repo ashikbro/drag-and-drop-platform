@@ -3,12 +3,22 @@ import React from 'react';
 const ComponentRenderer = ({ component }) => {
   const { type, props } = component;
 
+  // Color mappings for TailwindCSS classes
+  const buttonColorClasses = {
+    blue: 'bg-blue-500 hover:bg-blue-600',
+    green: 'bg-green-500 hover:bg-green-600',
+    red: 'bg-red-500 hover:bg-red-600',
+    purple: 'bg-purple-500 hover:bg-purple-600',
+    gray: 'bg-gray-500 hover:bg-gray-600',
+  };
+
   const renderComponent = () => {
     switch (type) {
       case 'button':
+        const colorClass = buttonColorClasses[props.color] || buttonColorClasses.blue;
         return (
           <button
-            className={`px-4 py-2 bg-${props.color || 'blue'}-500 text-white rounded hover:bg-${props.color || 'blue'}-600 transition-colors`}
+            className={`px-4 py-2 ${colorClass} text-white rounded transition-colors`}
           >
             {props.text || 'Button'}
           </button>
@@ -46,9 +56,22 @@ const ComponentRenderer = ({ component }) => {
         );
 
       case 'container':
+        const paddingClasses = {
+          '2': 'p-2',
+          '4': 'p-4',
+          '6': 'p-6',
+          '8': 'p-8',
+        };
+        const backgroundClasses = {
+          white: 'bg-white',
+          gray: 'bg-gray-50',
+          blue: 'bg-blue-50',
+        };
+        const paddingClass = paddingClasses[props.padding] || paddingClasses['4'];
+        const bgClass = backgroundClasses[props.background] || backgroundClasses.white;
         return (
           <div
-            className={`p-${props.padding || '4'} bg-${props.background || 'white'} rounded border border-gray-200`}
+            className={`${paddingClass} ${bgClass} rounded border border-gray-200`}
           >
             <p className="text-gray-600">Container Component</p>
             {props.children && <div>{props.children}</div>}
