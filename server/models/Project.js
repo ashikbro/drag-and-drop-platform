@@ -13,14 +13,6 @@ const projectSchema = new mongoose.Schema(
       required: true,
     },
     components: [componentSchema],
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
-    updatedAt: {
-      type: Date,
-      default: Date.now,
-    },
   },
   { timestamps: true }
 );
